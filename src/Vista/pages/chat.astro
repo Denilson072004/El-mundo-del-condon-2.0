@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/BaseLayout.astro";
+import "../styles/styles.css";
+import "../styles/botones.css";
+import "../styles/styleslogin.css";
+---
+
+<Layout>
+<div class="body-chat">
+
+  <header>
+  </header>
+
+  <div class="chat-container">
+    <h1 style="color: black">Chat de Soporte</h1>
+    <div class="chat-box" id="chat"></div>
+    <input type="text" id="message" placeholder="Escribe tu mensaje...">
+    <button onclick="sendMessage()">Enviar</button>
+  </div>
+
+</div>
+</Layout>

@@ -1,0 +1,102 @@
+---
+import ApiWidgets from "../components/ApiWidgets.astro";
+
+import Layout from "../layouts/BaseLayout.astro";
+import "../styles/styles.css";
+import "../styles/botones.css";
+import "../styles/styleslogin.css";
+---
+
+<Layout>
+  <div class="carrito-container">
+    <header>
+      <h1 class="titulo-carrito">🛒 Carrito de Compras</h1>
+    </header>
+
+    <main class="carrito-principal">
+    <div class="carrito-box">
+      <div id="carrito-productos" class="carrito-grid"></div>
+
+      <div class="resumen-box">
+        <h3>Total:</h3>
+        <p id="carrito-total" class="precio">$0</p>
+        <button class="comprar-ahora" onclick="procederPago()">Proceder al pago</button>
+      </div>
+      </div>
+    </main>
+  </div>
+
+  <script is:browser>
+    const productosContainer = document.getElementById("carrito-productos");
+    const totalEl = document.getElementById("carrito-total");
+
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    let total = 0;
+
+    function renderCarrito() {
+  productosContainer.innerHTML = "";
+  let total = 0;
+
+  carrito.forEach((item, index) => {
+    const subtotal = item.precio * item.cantidad;
+    total += subtotal;
+
+    const card = document.createElement("div");
+    card.className = "producto-card";
+    card.innerHTML = `
+      <img src="${item.imagen}" alt="${item.nombre}" class="imagen-producto" />
+      <div class="info-producto">
+        <h3>${item.nombre}</h3>
+        <div class="cantidad">
+  <button class="btn-cantidad" onclick="cambiarCantidad(${index}, -1)">-</button>
+  ${item.cantidad}
+  <button class="btn-cantidad" onclick="cambiarCantidad(${index}, 1)">+</button>
+</div>
+
+        <p class="precio">Subtotal: $${subtotal}</p>
+        <button class="delete-btn" onclick="eliminar(${index})">Eliminar</button>
+      </div>
+    `;
+    productosContainer.appendChild(card);
+  });
+
+  totalEl.textContent = `$${total}`;
+}
+
+window.cambiarCantidad = function(index, cambio) {
+  if (!carrito[index]) return;
+
+  carrito[index].cantidad += cambio;
+
+  if (carrito[index].cantidad <= 0) {
+    carrito.splice(index, 1);
+  }
+
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  renderCarrito();
+};
+
+
+    window.eliminar = function(index) {
+  carrito.splice(index, 1);
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  location.reload();
+};
+
+
+    renderCarrito();
+
+    window.procederPago = function () {
+  if (carrito.length === 0) {
+    alert("Tu carrito está vacío.");
+    return;
+  }
+
+  alert("¡Gracias por tu compra! 🛍️");
+  localStorage.removeItem("carrito"); // Vacía el carrito
+  location.reload(); // Recarga para actualizar la interfaz
+};
+
+  </script>
+  <ApiWidgets client:load />
+</Layout>

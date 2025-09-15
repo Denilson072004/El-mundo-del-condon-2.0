@@ -1,0 +1,119 @@
+
+
+body {
+    font-style: italic;
+}
+
+h3 {
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+li {
+    color: white;
+}
+.btn-regresar {
+    background-color: #FA9FC8; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Eliminar borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-regresar:hover {
+    background-color:  #DA97C2; /* Color cuando el mouse pasa por encima */
+}
+
+.btn-audio {
+    background-color: #FA9FC8; /* Color base */
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-audio:hover {
+    background-color: #DA97C2; /* Cambio de color al pasar el mouse */
+}
+
+
+button {
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+
+button[onclick*="imagenes.html"] {
+    background-color: #FA9FC8; /* Rosa claro */
+}
+
+button[onclick*="multimedia.html"] {
+    background-color: #FB229A; /* Rosa neón */
+}
+
+button[onclick*="listas.html"] {
+    background-color: #EB007C; /* Fucsia */
+}
+
+button[onclick*="informacion.html"] {
+    background-color: #FBBCB6; /* Rosa pastel */
+}
+
+button[onclick*="formulario.html"] {
+    background-color: #DA97C2; /* Rosa lavanda */
+}
+
+/* Efecto al pasar el mouse */
+button:hover {
+    filter: brightness(90%);
+}
+
+button[onclick*="cerrarSesion"] {
+    background-color: #FA9FC8; /* Rosa claro */
+}
+
+/* Estilo general para los botones */
+button {
+    background-color: #ffb6c1; /* Rosa claro */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Cambio de color al pasar el mouse */
+button:hover {
+    background-color: #ff91a4; /* Rosa más oscuro */
+}
+
+/* Botón de eliminar */
+.delete-btn {
+    background: #ffb6c1;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.delete-btn:hover {
+    background: #ff91a4;
+}
+

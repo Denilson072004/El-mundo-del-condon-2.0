@@ -1,0 +1,31 @@
+---
+---
+
+<button
+  id="theme-toggle"
+  class="px-3 py-1 rounded bg-pink-200 dark:bg-pink-600 text-black dark:text-white text-sm hover:bg-pink-300 dark:hover:bg-pink-500 transition-colors"
+>
+  Cambiar tema
+</button>
+
+
+<script is:browser>
+  const toggleBtn = document.getElementById('theme-toggle');
+  const htmlEl = document.documentElement;
+  const bodyEl = document.body;
+
+  // Al cargar, aplicar tema guardado
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    htmlEl.classList.add('dark');
+    bodyEl.classList.add('dark');
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    htmlEl.classList.toggle('dark');
+    bodyEl.classList.toggle('dark');
+
+    const isDark = htmlEl.classList.contains('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+</script>

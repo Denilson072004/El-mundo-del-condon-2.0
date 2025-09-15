@@ -1,0 +1,1231 @@
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  font-style: italic;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Fondo animado multicolor solo en modo claro */
+body:not(.dark) {
+  background: linear-gradient(135deg, 
+    #12c2e9, #c471ed, #f64f59, #004ff9, #fff200);
+  background-size: 300% 300%;
+  animation: movimiento 10s infinite alternate;
+}
+
+/* Fondo oscuro personalizado */
+body.dark {
+  background-color: #111827;
+}
+
+
+@keyframes movimiento {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+
+header {
+    color: rgb(255, 255, 255);
+    padding: 15px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#search-bar {
+    width: 50%;
+    padding: 8px;
+    margin-top: 10px;
+}
+
+.contenedor {
+    display: flex;
+}
+
+.filtros {
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+.filtros.oculto {
+  display: none;
+  opacity: 0;
+}
+
+
+.filtros {
+  width: 250px;
+  padding: 20px;
+  background: #fa9fc8;
+  box-shadow: 0 0 60px #EB007C;
+  border-radius: 10px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.filtros h2,
+.filtros h3 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.filtros ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.filtros li {
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-style: normal;
+  font-size: 16px;
+}
+
+.filtros input[type="checkbox"],
+.filtros input[type="radio"] {
+  accent-color: #EB007C;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.filtros input[type="checkbox"]:hover,
+.filtros input[type="radio"]:hover {
+  transform: scale(1.1);
+}
+
+.filtros input[type="radio"]:checked {
+  box-shadow: 0 0 0 2px #fff;
+}
+
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: left;
+    gap: 20px;
+    margin: 20px;
+}
+
+.producto {
+    background: #FBBCB6;
+    padding: 15px;
+    border-radius: 10px;
+    width: 225px;
+    box-shadow: 0 0 60px #DA97C2;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.producto:nth-child(1) {
+border-radius: 30px;
+    box-shadow: 0 0 35px #2196F3;}
+
+.producto:nth-child(2) {
+border-radius: 30px;
+    box-shadow: 0 0 35px #2196F3;}
+
+.producto:nth-child(3) {
+border-radius: 30px;
+    box-shadow: 0 0 35px #2196F3;}
+
+.producto:nth-child(4) {
+border-radius: 30px;
+    box-shadow: 0 0 35px #2196F3;}
+
+.producto:nth-child(5) {
+    border-radius: 30px;
+    box-shadow: 0 0 35px #2196F3;
+}
+
+.producto:nth-child(8) {
+    border-radius: 30px;
+    box-shadow: 0 0 35px #2196F3;
+}
+
+.imagen-producto {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+/* Añadimos una textura de ruido sutil */
+.producto::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/ash-wood-macro.png'); /* Puedes cambiarla por cualquier textura de esmerilado */
+    opacity: 0.2;  /* Controla la visibilidad de la textura */
+    pointer-events: none; /* Asegura que la textura no interfiera con otros elementos */
+    transition: all 0.3s ease;
+}
+
+/* Efecto de esmerillado al pasar el ratón */
+.producto:hover::before {
+    opacity: 0.5; /* Aumenta la visibilidad de la textura al pasar el mouse */
+}
+
+.producto:hover {
+    transform: translateY(-5px);  /* Le da un pequeño efecto flotante */
+    box-shadow: 0 0 80px #DA97C2;  /* Agranda el sombreado al hacer hover */
+    background: #FFD6D1; /* Un color más suave al pasar el ratón */
+}
+
+/*.fondo-extra {
+    background: linear-gradient(45deg, #a70fff, #fad0c4);
+}*/
+
+.fondo1 {
+border-radius: 30px;
+    box-shadow: 0 0 35px #2196F3;}
+
+.fondo2 {
+border-radius: 30px;
+    box-shadow: 0 0 35px #2196F3;}
+
+.precio {
+    font-size: 18px;
+    font-weight: bold;
+    color:  #EB007C;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.agregar-carrito {
+    background-color: #DA97C2;
+    color: white;
+}
+
+.comprar-ahora {
+    background-color: #FB229A;
+    color: white;
+}
+
+.Carrito {
+    background-color: #EB007C;
+    color: white;
+}
+
+.CerrarSesión {
+    background-color: #FA9FC8;
+    color: #FA9FC8;
+}
+
+.contenedor-lis {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.lis {  
+    background: #FA9FC8;
+    padding: 30px;
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 0 0 60px #FB229A;
+    text-align: left;
+}
+  
+.contenedor-lis2 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.lis2 {  
+    background: #FA9FC8;
+    padding: 30px;
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: 0 0 60px  #FB229A;
+    text-align: left;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+    flex-wrap: wrap;
+    flex: 1;
+  }
+
+.form {  
+    background:  #FBBCB6;
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 0 60px #FB229A;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    color: #ffffff;
+  }
+
+  .container-vid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.video-container {
+    margin-top: 20px; /* Espacio entre el texto y el video */
+}
+  
+.audio-container {
+    margin-top: 20px; /* Espacio entre el video y el audio */
+}
+
+.btn-regresar {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+}
+
+.rs {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.rs:hover {
+    transform: scale(2.1); /* Efecto de aumento al pasar el mouse */
+}
+
+/* Muestra el tooltip cuando se pasa el mouse */
+.tooltip-container:hover .tooltip-p {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Botón flotante para volver arriba */
+#btnArriba {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #c471ed;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+#btnArriba:hover {
+    background-color: #e03e00;
+}
+
+/* Estilos para la lista de tareas */
+.task-list {
+    width: 300px;
+    padding: 10px;
+    background: #f4f4f4;
+    border-radius: 5px;
+    list-style-type: none;
+}
+
+.task {
+    padding: 10px;
+    margin: 5px 0;
+    background: #ddd;
+    cursor: grab;
+    border-radius: 3px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task.dragging {
+    opacity: 0.5;
+}
+
+.delete-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.delete-btn:hover {
+    background: darkred;
+}
+
+
+/* Estilos para el clima */
+.clima-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #ffb6c1;
+    padding: 10px;
+    border-radius: 10px;
+    width: fit-content;
+    margin: 10px auto;
+    font-size: 16px;
+    color: white;
+}
+.clima-container img {
+    width: 40px;
+    height: 40px;
+}
+
+/* Estilos para la ventana flotante */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+.modal-contenido {
+    background-color: rgb(247, 44, 244);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+}
+.cerrar {
+    float: right;
+    cursor: pointer;
+}
+
+a {
+    margin: 10px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.3s ease;
+    font-size: 2rem;
+    color: var(--color);
+  }
+
+  .imagen-derecha {
+    display: flex;
+    align-items: center;
+    height: 100vh; /* Ajusta la altura para centrar */
+}
+
+.tooltip-p {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Posicionamiento del tooltip */
+.producto:hover .tooltip-p {
+    visibility: visible;
+    opacity: 1;
+}
+
+a{
+    margin: 10px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.3s ease;
+    font-size: 2rem;
+    color: var(--color);
+}
+
+/*Imagenes*/
+.container {
+    position: relative; 
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container {
+    position: absolute;
+    display: inline-block;
+}
+
+.floating-image {
+    max-width: 20vw;
+    min-width: 150px;
+    height: auto;  
+    transition: transform 0.3s ease-in-out;
+}
+
+.zoom:hover {
+    transform: scale(1.2);
+}
+
+.tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.image-container:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.img1 { top: 10%; left: 10%; }
+.img2 { bottom: 10%; right: 10%; }
+.img3 { bottom: 40%; left: 50%; transform: translateX(-50%); }
+.img4 { top: 10%; right: 10%; }
+.img5 { top: 10%; left: 45%; }
+
+
+.img1 .floating-image {
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+.img2 .floating-image {
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease-in-out;
+}
+
+.img3 .floating-image {
+    filter: grayscale(100%);
+}
+.img3:hover .floating-image {
+    filter: grayscale(0%);
+}
+
+.img4 .floating-image {
+    filter: blur(0px);
+}
+.img4:hover .floating-image {
+    filter: blur(5px);
+}
+
+.img5 .floating-image {
+    filter: invert(0%);
+}
+.img5:hover .floating-image {
+    filter: invert(100%);
+}
+
+.overlay-image {
+    position: absolute;
+    top: -20%;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+    opacity: 1; /* Transparencia */
+    pointer-events: none; /* Para que no bloquee clics */
+}
+
+
+/*Login*/
+.body-login {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    background: linear-gradient(135deg, 
+        #12c2e9, #c471ed, #f64f59, #004ff9, #fff200);
+    background-size: 300% 300%;
+    animation: movimiento 10s infinite alternate;
+  }
+  
+  @keyframes movimiento {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+  }
+    
+    
+    .login-container {
+      background-color: #FA9FC8;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px#DA97C2;
+      width: 300px;
+      text-align: center;
+    }
+  
+    h2 {
+      color: #ffffff
+    }
+    
+    label {
+      display: block;
+      margin-top: 10px;
+      color: #ffffff;
+    }
+    
+    input[type="text"],
+    input[type="password"] {
+      width: calc(100% - 20px);
+      padding: 8px;
+      margin: 8px 0;
+      border: 1px solid #000000;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    button {
+      background-color: #EB007C;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    
+    button:hover {
+      background-color: #DA97C2;
+    }
+  
+    .cerrarSesion {
+      background-color:  #DA97C2;
+      color: white;
+  }
+
+  .password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-container input {
+    width: 100%;
+    padding-right: 40px; 
+}
+
+.password-container button {
+    position: absolute;
+    right: -5px; 
+    top: 30%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 14px; 
+    width: 20px;  
+    height: 20px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Info*/
+.body-info {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Modo claro (animado) */
+body:not(.dark) .body-info {
+  background: linear-gradient(135deg, 
+      #12c2e9, #c471ed, #f64f59, #004ff9, #fff200);
+  background-size: 300% 300%;
+  animation: movimiento 10s infinite alternate;
+}
+
+/* Modo oscuro */
+body.dark .body-info {
+  background-color: #111827;
+}
+
+/* ✨ Animación de fondo */
+@keyframes movimiento {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+/* 🔳 CONTENEDORES ORGANIZADOS */
+.container-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Espaciado uniforme */
+    max-width: 90%;
+    padding: 20px;
+}
+
+/* 🏷️ Contenedor de información */
+.container-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(250, 159, 200, 0.8); /* Semi-transparente */
+    box-shadow: 0 0 15px rgb(205, 4, 4);
+    padding: 20px;
+    max-width: 300px;
+    min-width: 250px;
+    position: relative;
+    transition: transform 0.3s;
+}
+
+/* ✨ EFECTO HOVER */
+.container-info:hover {
+    transform: scale(1.05);
+}
+
+/* 🎭 EFECTO ESMERILLADO (Vidrio) */
+.esmerillado {
+    background: rgba(255, 255, 255, 0.2); /* Fondo más transparente */
+    backdrop-filter: blur(10px); /* Efecto de vidrio esmerilado */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 🌈 EFECTO DEGRADADO */
+.degradado {
+    background: linear-gradient(45deg, #d334ff, #e482ff, #f0b9ff);
+    background-size: 400% 400%;
+    animation: degradadoAnimado 5s infinite alternate;
+}
+
+/* 🎨 ANIMACIÓN DEL DEGRADADO */
+@keyframes degradadoAnimado {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* 🏞️ CONTENEDORES CON FONDO DE IMAGEN */
+.fondo-img-1 {
+    background: url('fondo1.jpg') center/cover no-repeat;
+    color: white;
+    
+}
+
+.fondo-img-2 {
+    background: url('fondo2.jpg') center/cover no-repeat;
+    color: white;
+    box-shadow: 0 0 15px rgb(0, 242, 186);
+}
+
+/* 🌟 FORMAS DIFERENTES PARA CADA CONTENEDOR */
+
+/* 1️⃣ Rectángulo redondeado clásico */
+.forma-rectangular {
+    border-radius: 20px;
+    box-shadow: -5px -5px #ff0000;
+}
+
+/* 2️⃣ Elipse (forma ovalada) */
+.forma-ovalada {
+    border-radius: 50%;
+    padding: 50px 20px; /* Ajuste del padding para mejorar la apariencia */
+    box-shadow: 0 15px 15px rgb(32, 190, 0);
+}
+
+/* 3️⃣ Esquinas opuestas redondeadas */
+.forma-esquinas {
+    border-radius: 50px 0px 50px 0px;
+    box-shadow: 5px -5px 0 5px rgb(6, 1, 255);
+}
+
+/* 4️⃣ Rectángulo con fondo de imagen y bordes cuadrados */
+.forma-fondo-imagen {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+}
+
+/* 5️⃣ Rectángulo con fondo de imagen y bordes redondeados */
+.forma-fondo-imagen-redondo {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+}
+
+/* 6️⃣ Forma de pentágono */
+.forma-4 {
+        border-radius: 20px 50px 20px 50px;
+        box-shadow: 0 -5px 5px 5px #ff02a6;
+
+}
+
+/* 7️⃣ Forma de trapecio */
+.forma-trapecio {
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+}
+
+/* 🖼️ Imagen dentro del contenedor */
+.container-info img {
+    max-width: 180px;
+    border-radius: 8px;
+}
+
+/* 📝 Texto dentro del contenedor */
+.container-info .text {
+    max-width: 80%;
+    position: relative;
+}
+
+/* 🏷️ Tooltip */
+.tooltip-info {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 8px;
+    border-radius: 5px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+}
+
+/* 📌 Texto con tooltip */
+.hover-text {
+    position: relative;
+    cursor: pointer;
+}
+
+/* 👀 Mostrar tooltip al pasar el mouse */
+.hover-text:hover .tooltip-info {
+    visibility: visible;
+    opacity: 1;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 🏷️ Titulos */
+h2 {
+    color: #f7f4f4;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* 📜 Texto */
+p {
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* 🔙 Botón de regreso */
+.btn-regresar {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+}
+
+/* ✨ REFLEJO EN EL CONTENEDOR ✨ */
+.reflejo {
+    -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0, 0, 0, 0.454), transparent);
+}
+
+
+
+  /*Audio*/
+  /* Estilos del reproductor */
+  audio {
+    width: 300px;
+    outline: none;
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease-in-out;
+    align-items: center;
+}
+
+/* Glow al interactuar */
+audio:hover,
+audio:focus-within {
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px rgb(255, 111, 0);
+    }
+    to {
+        box-shadow: 0 0 20px rgb(255, 128, 0);
+    }
+}
+
+/* Contenedor de las ondas */
+.wave-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+/* Estilo de la onda */
+.audio-wave {
+    width: 100px;
+    height: 100px;
+    background: rgba(0, 0, 255, 0.5);
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0;
+}
+
+/* Animación de pulso */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Se activa cuando el audio está reproduciéndose */
+.playing .audio-wave {
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Título */
+font {
+    font-size: 40px;
+    color: white;
+    display: block;
+    margin-top: 30px; /* Espacio entre el título y los videos */
+}
+
+/* Estilo para el contenedor de videos */
+.container-vid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px; /* Espacio entre el título y los videos */
+}
+
+/* Estilo para cada contenedor de video */
+.video-container {
+    margin-bottom: 20px; /* Espacio entre cada video */
+}
+
+video {
+    width: 800px;
+    height: 450px;
+    border-radius: 8px;
+    display: block;
+    align-items: center;
+}
+
+/* Estilos del contador */
+.contador {
+    font-size: 24px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/*Chat*/
+.body-chat {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .chat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .chat-box {
+    width: 350px;
+    height: 400px;
+    border: 1px solid #ccc;
+    overflow-y: auto;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 10px;
+  }
+  .message {
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 5px;
+  }
+  .user {
+    background-color: #d1e7dd;
+    text-align: right;
+  }
+  .bot {
+    background-color: #f8d7da;
+    text-align: left;
+  }
+  input {
+    width: 80%;
+    padding: 5px;
+  }
+  button {
+    padding: 5px;
+  }
+
+  /*Carrito*/
+.carrito-principal {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.carrito-box {
+  background: #fbbcb6;
+  box-shadow: 0 0 20px #fb229a;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 800px;
+  width: 100%;
+}
+
+.carrito-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.producto-card {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #da97c2;
+  gap: 20px;
+}
+
+.producto-card .imagen-producto {
+  width: 100px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.info-producto {
+  flex-grow: 1;
+}
+
+.info-producto h3 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #333;
+  font-style: italic;
+}
+
+.info-producto .precio {
+  font-weight: bold;
+  color: #000;
+  margin-top: 5px;
+}
+
+.delete-btn {
+  padding: 5px 10px;
+  background-color: #fb229a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.delete-btn:hover {
+  background-color: #d11d85;
+}
+
+.resumen-box {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid #fb229a;
+  text-align: right;
+}
+
+.resumen-box h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.resumen-box .precio {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000;
+}
+
+.comprar-ahora {
+  margin-top: 15px;
+  background-color: #fb229a;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.comprar-ahora:hover {
+  background-color: #d11d85;
+}
+
+.cantidad {
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #000;
+}
+
+.btn-cantidad {
+  all: unset; /* ❗ Elimina herencia de botones.css */
+  background-color: #fb229a;
+  color: white;
+  padding: 2px 6px;
+  margin: 0 4px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  line-height: 1;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn-cantidad:hover {
+  background-color: #d11d85;
+}
+
+/* Modal de compra */
+#modal-compra {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-contenido {
+    position: relative;
+  background-color: #fbbcb6;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 0 20px #fb229a;
+  animation: entrada 0.3s ease-out;
+}
+
+.modal-contenido h2 {
+  margin-bottom: 10px;
+}
+
+.modal-contenido p {
+  margin-top: 10px;
+}
+
+.modal-contenido .cerrar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  z-index: 100;
+}
+
+/* Animación */
+@keyframes entrada {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

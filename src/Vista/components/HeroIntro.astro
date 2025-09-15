@@ -1,0 +1,48 @@
+---
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { createSignal, onMount } from 'solid-js';
+---
+
+<style>
+  .intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #fb229a, #da97c2);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  .fade-out {
+    animation: fadeOut 1s ease forwards;
+  }
+
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; visibility: hidden; }
+  }
+</style>
+
+<div id="hero-intro" class="intro-screen">
+  <h1 style="font-size: 3rem;">Bienvenido a El Mundo del Condón</h1>
+  <p style="margin-top: 1rem;">Protege, disfruta y aprende</p>
+</div>
+
+<script is:browser>
+  setTimeout(() => {
+    const intro = document.getElementById('hero-intro');
+    if (intro) {
+      intro.classList.add('fade-out');
+      setTimeout(() => {
+        intro.remove();
+      }, 1000); // espera a que termine la animación antes de removerlo
+    }
+  }, 900); // muestra el Hero 3 segundos
+</script>

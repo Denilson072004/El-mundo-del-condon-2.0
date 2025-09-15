@@ -1,0 +1,93 @@
+.body-login {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* 🌈 Fondo animado multicolor (modo claro) */
+body.body-login:not(.dark) {
+  background: linear-gradient(135deg, 
+    #12c2e9, #c471ed, #f64f59, #004ff9, #fff200);
+  background-size: 300% 300%;
+  animation: movimiento 10s infinite alternate;
+}
+
+/* 🌑 Fondo estático oscuro (modo oscuro) */
+body.body-login.dark {
+  background-color: #111827;
+}
+
+@keyframes movimiento {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+  
+  
+  .login-container {
+    background-color: #FA9FC8;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px#DA97C2;
+    width: 300px;
+    text-align: center;
+  }
+
+  h2 {
+    color: #ffffff
+  }
+  
+  label {
+    display: block;
+    margin-top: 10px;
+    color: #ffffff;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #EB007C;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #DA97C2;
+  }
+
+  .cerrarSesion {
+    background-color:  #DA97C2;
+    color: white;
+}
+
+/* Estilos para inputs en modo oscuro */
+body.body-login.dark input[type="text"],
+body.body-login.dark input[type="password"],
+body.body-login.dark select,
+body.body-login.dark textarea {
+  background-color: #ffffff; /* gris oscuro */
+  color: #000000;            /* texto claro */
+  border: 1px solid #4b5563; /* borde gris */
+}

@@ -1,0 +1,64 @@
+---
+import Layout from "../layouts/BaseLayout.astro";
+import "../styles/styles.css";
+import "../styles/botones.css";
+import "../styles/styleslogin.css";
+---
+
+<Layout>
+
+    <header>
+        <font size="40" color="White">Formulario</font>
+    </header>
+
+    <main class="form-container">
+        <div class="form">
+            <h2>Formulario de Condones</h2>
+            <form id="condomForm">
+
+                <label for="Nombre">Nombre:</label>
+                <textarea style="color: black" id="Nombre" name="Nombre" rows="1" placeholder=""></textarea>
+
+                <label for="Edad">Edad:</label>
+                <textarea style="color: black" id="Edad" name="Edad" rows="1" placeholder=""></textarea>
+
+                <label for="marca">Marca:</label>
+                <select style="color: black" id="marca" name="marca" required>
+                    <option value="">Seleccione una marca</option>
+                    <option value="Durex">Durex</option>
+                    <option value="Prudence">Prudence</option>
+                    <option value="Sico">Sico</option>
+                    <option value="Trojan">Trojan</option>
+                    <option value="LifeStyles">LifeStyles</option>
+                </select>
+
+                <label for="sabor">Sabor:</label>
+                <select style="color: black" id="sabor" name="sabor">
+                    <option value="">Sin sabor</option>
+                    <option value="Fresa">Fresa</option>
+                    <option value="Chocolate">Chocolate</option>
+                    <option value="Menta">Menta</option>
+                    <option value="Plátano">Plátano</option>
+                </select>
+
+                <label for="tamaño">Tamaño:</label>
+                <select style="color: black" id="tamaño" name="tamaño" required>
+                    <option value="">Seleccione un tamaño</option>
+                    <option value="Estándar">Estándar</option>
+                    <option value="Grande">Grande</option>
+                    <option value="Pequeño">Pequeño</option>
+                </select>
+
+                <label for="comentarios">Comentarios:</label>
+                <textarea style="color: black" id="comentarios" name="comentarios" rows="4" placeholder="Escribe tu opinión..."></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+
+        <script src="/script.js" is:inline>
+            
+        </script>
+        </div>
+        
+    </main>
+</Layout>

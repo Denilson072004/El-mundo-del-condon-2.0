@@ -1,0 +1,387 @@
+---
+import "../styles/styles.css";
+import "../styles/botones.css";
+import "../styles/styleslogin.css";
+import HeroIntro from "../components/HeroIntro.astro";
+import Navbar from "../components/Navbar.astro";
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El mundo del condon</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="botones.css">
+</head>
+<body class="text-black dark:text-white transition-colors duration-300">
+<HeroIntro />
+<Navbar />
+
+
+    <script src="/script.js" is:inline></script>
+    <header>        
+        <input type="text" placeholder="¿Qué estás buscando?" id="search-bar" style="background-color: white; color: black; padding: 5px; border: 1px solid #ccc; border-radius: 5px;"
+>
+        <button class="Carrito" onclick="location.href='carrito.html'" style="width: 150px; height: 40px; font-size: 16px;">Carrito</button>
+        <button onclick="cerrarSesion()" style="width: 150px; height: 40px; font-size: 16px;">Cerrar Sesión</button>
+    </header>
+
+    <button onclick="abrirModal()">Seleccionar ciudad</button>
+    
+    <div id="miModal" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="cerrarModal()">&times;</span>
+            <h2>Selecciona tu ciudad</h2>
+            <input style="color: black" type="text" id="ciudad" placeholder="Ej: Mexico City">
+            <button onclick="consultarClima()">Obtener Clima</button>
+        </div>
+    </div>
+
+    <section id="clima" class="clima-container">
+        <span>Cargando clima...</span>
+    </section>
+
+
+    <main class="contenedor">
+    <button id="toggle-filtros" class="toggle-filtros-btn">
+   Filtros
+</button>
+
+        <aside class="filtros oculto" id="panel-filtros">
+  <h2>Filtros</h2>
+  <h3>Marca</h3>
+  <ul>
+    <li><input type="checkbox" data-filtro="marca" value="Prudence"> Prudence</li>
+    <li><input type="checkbox" data-filtro="marca" value="Trojan"> Trojan</li>
+  </ul>
+
+  <h3>Sabor</h3>
+  <ul>
+    <li><input type="checkbox" data-filtro="sabor" value="Chocolate"> Chocolate</li>
+    <li><input type="checkbox" data-filtro="sabor" value="Sin sabor"> Sin sabor</li>
+  </ul>
+
+  <h3>Precio</h3>
+  <ul>
+    <li><input type="radio" name="precio" value="0-70"> $0.00 - $70.00</li>
+    <li><input type="radio" name="precio" value="71-80"> $71.00 - $80.00</li>
+    <li><input type="radio" name="precio" value="81-9999"> $81.00 y superiores</li>
+  </ul>
+</aside>
+
+        </aside>
+
+        <section class="productos">
+
+            <div class="producto" 
+            data-nombre="Prudence 3pz Extra Pleasure 3"
+     data-marca="Prudence"
+     data-sabor="Sin sabor"
+     data-precio="63">
+                <img src="/prudence_ex.jpg" alt="Prudence 3pz Extra Pleasure 3" class="imagen-producto">
+                <div class="tooltip-p">Prudence 3pz Extra Pleasure 3</div>
+                <h1> Prudence 3pz Extra Pleasure 3</h3>
+                <p class="precio">$63.00</p>
+                <button class="agregar-carrito" onclick="agregarCarrito('Prudence Extra Pleasure 3 3pz', 63, '/prudence_ex.jpg')">Agregar al carrito</button>
+                <button class="comprar-ahora" onclick="comprarAhora('Prudence Extra Pleasure 3 3pz', 63, '/prudence_ex.jpg')">Comprar ahora</button>
+            </div>
+
+            <div class="producto" 
+            data-nombre="Prudence 3pz Clásico"
+     data-marca="Prudence"
+     data-sabor="Sin sabor"
+     data-precio="55">
+                <img src="/prudence.jpg" alt="Prudence 3pz Clásico" class="imagen-producto">
+                <div class="tooltip-p">Prudence 3pz Clasico</div>
+                <h1>Prudence 3pz Clásico</h1>
+                <p class="precio">$55.00</p>
+                <button class="agregar-carrito" onclick="agregarCarrito('Prudence 3pz Clásico', 55, '/prudence.jpg')">Agregar al carrito</button>
+                <button class="comprar-ahora" onclick="comprarAhora('Prudence 3pz Clásico', 55, '/prudence.jpg')">Comprar ahora</button>
+            </div>
+
+            <div class="producto"
+            data-nombre="Prudence 3pz Chocolate"
+     data-marca="Prudence"
+     data-sabor="Chocolate"
+     data-precio="80">
+                <img src="/prudence_ch.jpg" alt="Prudence 3pz Chocolate" class="imagen-producto">
+                <div class="tooltip-p">Prudence 3pz Chocolate</div>
+                <h1>Prudence 3pz Chocolate</h1>
+                <p class="precio">$80.00</p>
+                <button class="agregar-carrito" onclick="agregarCarrito('Prudence 3pz Chocolate', 80, '/prudence_ch.jpg')">Agregar al carrito</button>
+                <button class="comprar-ahora" onclick="comprarAhora('Prudence 3pz Chocolate', 80, '/prudence_ch.jpg')">Comprar ahora</button>
+            </div>
+
+            <div class="producto"
+            data-nombre="Prudence 3pz Extra Time"
+     data-marca="Prudence"
+     data-sabor="Sin sabor"
+     data-precio="63">
+                <img src="/prudence_xt.jpg" alt="Prudence 3pz Extra Time" class="imagen-producto">
+                <div class="tooltip-p">Prudence 3pz Extra Time</div>
+                <h4>Prudence 3pz Extra Time</h3>
+                <p class="precio">$63.00</p>
+                <button class="agregar-carrito" onclick="agregarCarrito('Prudence 3pz Extra Time', 63, 'prudence_xt.jpg')">Agregar al carrito</button>
+                <button class="comprar-ahora" onclick="comprarAhora('Prudence 3pz Extra Time', 63, 'prudence_xt.jpg')">Comprar ahora</button>
+            </div>
+
+            <div class="producto"
+            data-nombre="Trojan Fire & Ice 3pz"
+     data-marca="Trojan"
+     data-sabor="Sin sabor"
+     data-precio="90">
+                <img src="/trojan_fi.jpg" alt="Trojan Fire & Ice 3pz" class="imagen-producto">
+                <div class="tooltip-p">Trojan Fire & Ice 3pz</div>
+                <h5>Trojan Fire & Ice 3 pz</h3>
+                <p class="precio">$90.00</p>
+                <button class="agregar-carrito" onclick="agregarCarrito('Trojan Fire & Ice 3 pz', 90, 'trojan_fi.jpg')">Agregar al carrito</button>
+                <button class="comprar-ahora" onclick="comprarAhora('Trojan Fire & Ice 3 pz', 90, 'trojan_fi.jpg')">Comprar ahora</button>
+            </div>
+
+            <div class="producto fondo1"
+            data-nombre="Trojan Piel Desnuda Sensitive 3pz"
+     data-marca="Trojan"
+     data-sabor="Sin sabor"
+     data-precio="90">
+                <img src="/2.jpg" alt="Trojan piel desnuda" class="imagen-producto" >
+                <div class="tooltip-p">Trojan Piel Desnuda Sensitive 3pz</div>
+                <h1>Trojan Piel Desnuda Sensitive 3pz</h3>
+                <p class="precio">$90.00</p>
+                <button class="agregar-carrito" onclick="agregarCarrito('Trojan Piel Desnuda Sensitive 3pz', 90, '/2.jpg')">Agregar al carrito</button>
+                <button class="comprar-ahora" onclick="comprarAhora('Trojan Piel Desnuda Sensitive 3pz', 90, '/2.jpg')">Comprar ahora</button>
+            </div>
+
+            <div class="producto fondo2"
+            data-nombre="Trojan Piel Desnuda Puntos de Placer 3pz"
+     data-marca="Trojan"
+     data-sabor="Sin sabor"
+     data-precio="90">
+                <img src="/trojan_pd.jpg" alt="Trojan piel desnuda" class="imagen-producto">
+                <div class="tooltip-p">Trojan Piel Desnuda Puntos de Placer 3pz</div>
+                <h1>Trojan Piel Desnuda Puntos de Placer 3pz</h3>
+                <p class="precio">$90.00</p>
+                <button class="agregar-carrito" onclick="agregarCarrito('Trojan Piel Desnuda Puntos de Placer 3pz', 90, '/trojan_pd.jpg')">Agregar al carrito</button>
+                <button class="comprar-ahora" onclick="comprarAhora('Trojan Piel Desnuda Puntos de Placer 3pz', 90, '/trojan_pd.jpg')">Comprar ahora</button>
+            </div>
+
+            <div class="producto"
+            data-nombre="Trojan Texturizado Ecstasy 3pz"
+     data-marca="Trojan"
+     data-sabor="Sin sabor"
+     data-precio="90">
+                <img src="/trojan_ec.jpg" alt="Trojan Ecstasy" class="imagen-producto">
+                <div class="tooltip-p">Trojan Texturizado Ecstasy 3pz</div>
+                <h1>Trojan Texturizado Ecstasy 3pz</h1>
+                <p class="precio">$90.00</p>
+                <button class="agregar-carrito" onclick="agregarCarrito('Trojan Texturizado Ecstasy 3pz', 90, '/trojan_ec.jpg')">Agregar al carrito</button>
+                <button class="comprar-ahora" onclick="comprarAhora('Trojan Texturizado Ecstasy 3pz', 90, '/trojan_ec.jpg')">Comprar ahora</button>
+            </div> 
+            
+        </section>
+
+        
+    </main>
+
+
+
+    <center><table>
+        <tr>
+        <th>
+            <a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2F%3Flocale%3Des_LA">
+                <img src="/fb.jpg" alt="Facebook" height="40" width="40" class="rs">
+            </a>
+        </th>
+        <th>
+            <a href="https://www.instagram.com/">
+                <img src="/ig.jpg" alt="Instagram" height="80" width="80" class="rs">
+            </a>
+        </th>
+        <th>
+            <a href="https://www.whatsapp.com/?lang=es_LA">
+                <img src="/whats.jpg" alt="WhatsApp" height="40" width="40" class="rs">
+            </a>
+        </th>
+        <th>
+            <a href="https://www.tiktok.com/?lang=en">
+                <img src="/tk.jpg" alt="TikTok" height="40" width="40" class="rs">
+            </a>
+        </th>
+        <th>
+           <!-- <a href="#" onmouseover="mostrarImagen()" onmouseout="ocultarImagen()">Pasa el cursor aquí</a>
+            <br>
+            <img id="img" src="C:\Users\denil\OneDrive\Documentos\FrontEnd\El mundo del condon\yt.jpg" width="200" style="display: none;">
+
+            <script>
+                function mostrarImagen() {
+                document.getElementById("img").style.display = "block";
+            }
+
+                function ocultarImagen() {
+                document.getElementById("img").style.display = "none";
+            }
+            </script>-->
+
+            <a href="https://www.youtube.com/">
+                <img src="/yt.jpg" alt="YouTube" height="40" width="40" class="rs">
+            </a>
+        </th>
+    </tr>
+    </table>
+
+    </center>
+
+    <!-- Botón para volver arriba -->
+    <button id="btnArriba" onclick="scrollArriba()">↑</button>
+
+<!-- 🪟 Modal de confirmación de compra -->
+<div id="modal-compra" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarModalCompra()">&times;</span>
+    <h2>✅ ¡Gracias por tu compra!</h2>
+    <img id="modal-imagen" src="" alt="Producto" style="max-width: 100px; border-radius: 8px;">
+    <p id="modal-nombre"></p>
+    <p id="modal-precio" class="precio"></p>
+  </div>
+</div>
+
+<script src="/script.js" defer></script>
+
+    <!-- Script para cambiar el tema -->
+    <script is:browser>
+      const toggleBtn = document.getElementById('theme-toggle');
+      const htmlEl = document.documentElement;
+      const bodyEl = document.body;
+
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        htmlEl.classList.add('dark');
+        bodyEl.classList.add('dark');
+      }
+
+      toggleBtn.addEventListener('click', () => {
+        htmlEl.classList.toggle('dark');
+        bodyEl.classList.toggle('dark');
+        const isDark = htmlEl.classList.contains('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      });
+      </script>
+
+      <script type="module" is:inline>
+  import Fuse from 'https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.esm.js';
+
+  // Obtener todos los elementos de producto
+  const productosDOM = [...document.querySelectorAll('.producto')];
+
+  // Convertir cada producto a un objeto JS con referencia al elemento
+  const productos = productosDOM.map(el => ({
+    nombre: el.dataset.nombre,
+    marca: el.dataset.marca,
+    sabor: el.dataset.sabor,
+    precio: parseFloat(el.dataset.precio),
+    element: el
+  }));
+
+  // Configuración de Fuse.js
+  const fuse = new Fuse(productos, {
+    keys: ['nombre', 'marca', 'sabor'],
+    threshold: 0.4
+  });
+
+  // Función principal: búsqueda + filtros
+  function filtrarProductos() {
+    const textoBusqueda = document.getElementById('search-bar').value.trim().toLowerCase();
+
+    const checkboxes = [...document.querySelectorAll('.filtros input[type="checkbox"]:checked')];
+    const radios = [...document.querySelectorAll('.filtros input[type="radio"]:checked')];
+
+    // Objeto de filtros seleccionados
+    const filtros = {
+      marca: [],
+      sabor: [],
+      precio: null
+    };
+
+    // Leer filtros por data-filtro
+    checkboxes.forEach(chk => {
+      const tipo = chk.dataset.filtro;
+      const valor = chk.value;
+      if (tipo === 'marca') filtros.marca.push(valor);
+      if (tipo === 'sabor') filtros.sabor.push(valor);
+    });
+
+    // Leer precio (radio)
+    if (radios.length > 0) {
+      const [min, max] = radios[0].value.split('-').map(Number);
+      filtros.precio = [min, max];
+    }
+
+    // Aplicar filtros básicos
+    let resultados = productos.filter(p => {
+      const coincideMarca = filtros.marca.length === 0 || filtros.marca.includes(p.marca);
+      const coincideSabor = filtros.sabor.length === 0 || filtros.sabor.includes(p.sabor);
+      const coincidePrecio = !filtros.precio || (p.precio >= filtros.precio[0] && p.precio <= filtros.precio[1]);
+      return coincideMarca && coincideSabor && coincidePrecio;
+    });
+
+    // Aplicar búsqueda si hay texto
+    if (textoBusqueda !== '') {
+      const resultadosBusqueda = fuse.search(textoBusqueda).map(r => r.item);
+      resultados = resultados.filter(p => resultadosBusqueda.includes(p));
+    }
+
+    // Mostrar u ocultar productos según resultado
+    productos.forEach(p => p.element.style.display = "none");
+    resultados.forEach(p => p.element.style.display = "block");
+  }
+
+  // Eventos de cambio
+  document.getElementById('search-bar')?.addEventListener('input', filtrarProductos);
+  document.querySelectorAll('.filtros input')?.forEach(el => el.addEventListener('change', filtrarProductos));
+
+  // Ejecutar una vez al cargar para mostrar todos
+  filtrarProductos();
+
+// Permitir deseleccionar radios
+  const radios = document.querySelectorAll('.filtros input[type="radio"]');
+  let selectedRadio = null;
+
+  radios.forEach(radio => {
+    radio.addEventListener('click', function () {
+      if (selectedRadio === this) {
+        this.checked = false;
+        selectedRadio = null;
+      } else {
+        selectedRadio = this;
+      }
+
+      // 👇 Llamar al filtro de nuevo
+      if (typeof filtrarProductos === 'function') {
+        filtrarProductos();
+      }
+    });
+  });
+    </script>
+
+<script is:inline>
+  const btnToggle = document.getElementById("toggle-filtros");
+  const panelFiltros = document.getElementById("panel-filtros");
+
+  btnToggle.addEventListener("click", () => {
+    if (panelFiltros.classList.contains("oculto")) {
+      panelFiltros.style.display = "block";
+      setTimeout(() => {
+        panelFiltros.classList.remove("oculto");
+      }, 10); // pequeña espera para aplicar la transición
+    } else {
+      panelFiltros.classList.add("oculto");
+      setTimeout(() => {
+        panelFiltros.style.display = "none";
+      }, 300); // esperar que se complete la transición
+    }
+  });
+</script>
+
+</body>
+</html>

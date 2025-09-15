@@ -1,0 +1,67 @@
+---
+import Layout from "../layouts/BaseLayout.astro";
+import "../styles/styles.css";
+import "../styles/botones.css";
+import "../styles/styleslogin.css";
+---
+
+
+<Layout>
+
+    <header>
+        <font size="40" color="White" onclick="incrementarContador('titulo')">Multimedia</font>
+    </header>
+
+    <font size="40" color="White" onclick="incrementarContador('texto')">La importancia del condón</font>.
+
+
+    <!-- Videos -->
+    <div class="video-container" onclick="incrementarContador('videos')">
+        <video controls>
+            <source src="/Vete ala Versh - Condón e ITS.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+    </div>
+
+    <div class="video-container" onclick="incrementarContador('videos')">
+        <video controls>
+            <source src="/video1.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+    </div>
+
+    <div class="video-container" onclick="incrementarContador('videos')">
+        <video controls>
+            <source src="/video2.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+    </div>
+
+    <div class="video-container" onclick="incrementarContador('videos')">
+        <video controls>
+            <source src="/video3.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+    </div>
+
+    <div class="video-container" onclick="incrementarContador('videos')">
+        <video controls>
+            <source src="/video4.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+    </div>
+
+    <font size="40" color="White" onclick="incrementarContador('texto2')">Audio</font>.
+
+    <!-- Contenedor de la onda -->
+    <div class="wave-container">
+        <div class="audio-wave"></div>
+    </div>
+
+    <!-- Reproductor de audio -->
+    <audio id="audioPlayer" controls>
+        <source src="/Uso correcto del preservativo.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+</Layout>

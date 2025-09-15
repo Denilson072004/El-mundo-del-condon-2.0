@@ -1,0 +1,61 @@
+---
+import "../styles/botones.css";
+import "../styles/styleslogin.css";
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Usuario</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="body-login text-black dark:text-white transition-colors duration-300">
+
+    <button id="theme-toggle" class="fixed top-4 right-4 z-50 p-2 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded shadow-lg">
+      Cambiar tema
+    </button>
+
+  <div class="login-container">
+    <h2>Registro</h2>
+    <form id="register-form">
+      <label for="new-username">Correo:</label>
+      <input type="text" id="new-username" required>
+      <label for="new-password">Contraseña:</label>
+      <div class="password-container">
+        <input type="password" id="new-password" required>
+        <button type="button" onclick="togglePassword('new-password', this)">Mostrar Contraseña</button>
+      </div>
+      <button type="submit">Registrarse</button>
+    </form>
+    <button onclick="window.location.href='/Vista/pages/login'">Volver al Login</button>
+    <button onclick="generarContrasena()">Generar Contraseña</button>
+  </div>
+
+  <script src="/script.js" defer is:inline></script>
+
+    <script src="/script.js" defer></script>
+
+    <script is:browser>
+const toggleBtn = document.getElementById('theme-toggle');
+const htmlEl = document.documentElement;
+const bodyEl = document.body;
+
+// Cargar tema guardado
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+  htmlEl.classList.add('dark');
+  bodyEl.classList.add('dark');
+}
+
+toggleBtn.addEventListener('click', () => {
+  htmlEl.classList.toggle('dark');
+  bodyEl.classList.toggle('dark');
+
+  const isDark = htmlEl.classList.contains('dark');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
+    </script>
+
+</body>
+</html>
